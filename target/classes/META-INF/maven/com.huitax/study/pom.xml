@@ -1,0 +1,393 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.huitax</groupId>
+	<artifactId>study</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>${package.type}</packaging>
+
+	<name>study</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		
+		<spring.boot.version>1.5.2.RELEASE</spring.boot.version>
+		<spring-framework.version>4.3.7.RELEASE</spring-framework.version>
+		<!-- <huitax-core.version>1.0.0-SNAPSHOT</huitax-core.version> -->
+		<hibernate.version>4.2.1.Final</hibernate.version>
+		<!-- <community-core.version>1.7.0-SNAPSHOT</community-core.version> -->
+		<docker.registry>10.0.101.33:80/library</docker.registry>
+		<tag>1.0.0</tag>
+	</properties>
+	<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
+    <dependencyManagement>
+    	
+	</dependencyManagement>
+	<!-- 仓库配置 -->
+<!-- 	<repositories>
+		<repository>
+			<id>springio</id>
+			<url>http://10.0.101.6:8081/nexus/content/repositories/springio/</url>
+		</repository>
+		<repository>
+			<id>huitax-releases</id>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<url>http://10.0.101.6:8081/nexus/content/repositories/huitax-releases/</url>
+		</repository>
+		<repository>
+			<id>huitax-snapshots</id>
+			<url>http://10.0.101.6:8081/nexus/content/repositories/huitax-snapshots/</url>
+		</repository>
+	</repositories> -->
+	<dependencies>
+	
+	<!-- <dependency>
+    	<groupId>com.lowagie</groupId>
+    	<artifactId>itext</artifactId>
+    	<version>2.1.7</version>
+	</dependency> -->
+	
+	<!-- 第一种 https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf-itext5 -->
+<dependency>
+    <groupId>org.xhtmlrenderer</groupId>
+    <artifactId>flying-saucer-pdf-itext5</artifactId>
+    <version>9.1.16</version>
+</dependency>
+
+<!--html to pdf start-->
+		<dependency>
+			<groupId>com.itextpdf.tool</groupId>
+			<artifactId>xmlworker</artifactId>
+			<version>5.5.1</version>
+		</dependency>
+
+		<!-- 支持中文 -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext-asian</artifactId>
+			<version>5.2.0</version>
+		</dependency>
+		<!-- 支持css样式渲染 -->
+		<dependency>
+			<groupId>org.xhtmlrenderer</groupId>
+			<artifactId>flying-saucer-pdf-itext5</artifactId>
+			<version>9.1.7</version>
+		</dependency>
+		<!--html to pdf end-->
+
+ 
+
+	
+		
+		<!-- Spring Boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		
+		<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpmime</artifactId>
+    <version>4.5.5</version>
+</dependency>
+		
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		<!-- office文档组件 start -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.11</version>
+		</dependency>
+		<!-- office文档组件end -->
+
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.0</version>
+			<exclusions>  
+	            <exclusion>  
+	                <groupId>org.apache.tomcat</groupId>  
+	                <artifactId>tomcat-jdbc</artifactId>  
+	            </exclusion>  
+	        </exclusions>  
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP-java7</artifactId>
+		</dependency>
+
+		<dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+		
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		
+		<!-- office文档组件 start <dependency> <groupId>org.apache.poi</groupId> <artifactId>poi</artifactId> 
+			<version>3.9</version> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+			<artifactId>poi-ooxml</artifactId> <version>3.9</version> </dependency> office文档组件end -->
+
+		<!-- 文件上传start -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<!-- commons io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+		</dependency>
+		<!-- 文件上传 end -->
+
+
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>com.zhonghui</groupId>
+			<artifactId>huitax-core</artifactId>
+			<version>${huitax-core.version}</version>
+		</dependency> -->
+		
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.15</version>
+		</dependency>
+        <!-- java对象属性拷贝包 -->
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>5.5.1</version>
+		</dependency>
+<!-- 解压rar -->
+		
+	</dependencies>
+	
+	<profiles>
+		<profile> <!-- 可以通过 -P ID 来激活 开发环境 -->
+			<id>dev</id>	 <!-- ID 标识符 -->
+			<properties>
+				<env>dev</env>
+				<package.type>jar</package.type>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault> <!-- 默认激活 -->
+			</activation>
+
+		</profile>
+		<profile> <!-- 可以通过 -P ID 来激活 测试环境 -->
+			<id>test</id> <!-- ID 标识符 -->
+			<properties>
+				<env>test</env>
+				<package.type>war</package.type>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile> <!-- 可以通过 -P ID 来激活 线上生成环境 -->
+			<id>production</id> <!-- ID 标识符 -->
+			<properties>
+				<env>production</env>
+				<package.type>war</package.type>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/node_modules/**</exclude>
+					<!--排除多余的application-${env}.properties文件 -->
+					<exclude>**/application*.properties</exclude>
+					<exclude>**/public/build/**</exclude>
+					<exclude>**/public/config/**</exclude>
+					<exclude>**/public/src/**</exclude>
+					<exclude>**/public/*.bat</exclude>
+					<exclude>**/public/*.md</exclude>
+					<exclude>**/public/*.json</exclude>
+				</excludes>
+
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<!--只保留application-${env}.properties文件 -->
+				<directory>src/main/resources/config</directory>
+				<includes>
+					<include>**/application.properties</include>
+					<include>**/application-${env}.properties</include>
+				</includes>
+				<targetPath>config</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<filters>
+			<!--设置变量${env} -->
+			<filter>src/main/resources/config/application.properties</filter>
+		</filters>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.zhonghui.assetanalysis.webapp.App</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 忽略web.xml文件,servlet 3.0支持无web.xml的部署方式 -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<!--https://github.com/spotify/dockerfile-maven-->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>${docker.registry}/${project.artifactId}</repository>
+					<tag>${tag}</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+					<buildArgs>
+
+					</buildArgs>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

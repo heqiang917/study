@@ -1,0 +1,26 @@
+
+
+.el-pagination {
+	.el-pager {
+		li {
+			border-color: #ddd;
+		}
+
+		li.active {
+    		border-color: #0689ea;
+			background-color: #0689ea;
+		}
+	}
+
+	.btn-next, .btn-prev {
+		border-color: #ddd;
+	}
+
+	.el-pagination__editor {
+		border-color: #ddd;
+	}
+}
+
+
+
+

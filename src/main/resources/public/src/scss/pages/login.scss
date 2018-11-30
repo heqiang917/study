@@ -1,0 +1,51 @@
+
+.g-doc {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #038aea;
+}
+
+.m-login {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.85);
+
+    h3 {
+        margin-bottom: 30px;
+        color: #505050;
+        font-size: 20px;
+        text-align: center;
+        line-height: 32px;
+    }
+
+    .el-input {
+    	input {
+    		font-size: 16px;
+    		border: 0px;
+    	}
+    }
+
+    .el-button {
+    	width: 100%;
+    }
+
+    .errmsg {
+        max-height: 300px;
+        color: #fb4d4d;
+        font-size: 14px;
+        text-align: center;
+        word-wrap: break-word;
+        overflow: auto;
+    }
+
+    .errmsg.hiding {
+        transition: opacity 1s;
+        opacity: 0;
+    }
+}
