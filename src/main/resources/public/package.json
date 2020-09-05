@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^1.0.0-alpha.2",
-    "axios": "^0.15.2",
+    "axios": "^0.20.0",
     "china-area-data": "^1.0.0",
     "clipboard": "^1.6.1",
     "core-decorators": "^0.15.0",
