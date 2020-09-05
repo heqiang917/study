@@ -18,7 +18,7 @@
     "element-ui": "^1.3.7",
     "jquery.core.image.upload": "^0.9.1",
     "js-cookie": "^2.1.3",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.19",
     "md5": "^2.2.1",
     "moment": "^2.17.1",
     "nd-browser": "^3.0.1",
